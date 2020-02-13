@@ -1,0 +1,42 @@
+syntax on
+filetype on
+
+set nocompatible nobackup autochdir
+set number ruler incsearch hlsearch autoindent expandtab
+set shiftwidth=2 tabstop=2 softtabstop=2 foldmethod=marker
+set mouse=a backspace=indent,eol,start fileencoding=utf-8
+
+func Compile()
+  if &filetype=='c'
+    exec "w"
+    exec "!gcc -g % -o %<.o -Wall -Wextra -lm && size %<.o"
+  elseif &filetype=='cpp'
+    exec "w"
+    exec "!g++ -g % -o %<.o -Wall -Wextra -lm && size %<.o"
+  elseif &filetype=='python'
+    exec "!echo 'This is a Python file, you do not have to compile.'"
+  elseif &filetype=='tex'
+    exec "!latex %"
+  endif
+endfunc
+
+func Run()
+  if &filetype=='c'
+    exec "!./%<.o"
+  elseif &filetype=='cpp'
+    exec "!./%<.o"
+  elseif &filetype=='python'
+    exec "w"
+    exec "!python3 %<.py"
+  elseif &filetype=='tex'
+    exec "!open %<.pdf"
+  endif
+endfunc
+
+func Debug()
+  exec "!gdb %<.o"
+endfunc
+
+map <F9> : call Compile() <CR>
+map <F8> : call Run() <CR>
+map <F7> : call Debug() <CR>
