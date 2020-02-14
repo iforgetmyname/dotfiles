@@ -18,4 +18,12 @@ printf "\e[32mInstalling git configs for $os_type...\e[m\n"
 install -m 644 -v $PWD/git/gitconfig $HOME/.gitconfig
 printf "\e[32mGit configs installed\e[m\n"
 
+printf "\e[32mInstalling vscode configs for $os_type...\e[m\n"
+if [ "$os_type" = "Darwin" ]; then
+  install -m 644 -v $PWD/vscode/settings.json $HOME/Library/ApplicationSupport/Code/User/settings.json
+  printf "\e[32mVscode configs installed\e[m\n"
+else
+  printf "\e[31m$os_type not supported for vscode\e[m\n"
+fi
+
 unset os_type

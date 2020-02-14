@@ -14,5 +14,8 @@
   c = commit
   cm = commit -m
   s = status
+  ph = push
+  pl = pull
+  cl = clone
   lo = log --pretty=oneline
   lr = log --pretty=reference
