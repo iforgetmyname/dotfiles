@@ -14,4 +14,8 @@ printf "\e[32mInstalling vim configs for $os_type...\e[m\n"
 install -m 644 -v $PWD/vim/vimrc $HOME/.vimrc
 printf "\e[32mVim configs installed\e[m\n"
 
+printf "\e[32mInstalling git configs for $os_type...\e[m\n"
+install -m 644 -v $PWD/git/gitconfig $HOME/.gitconfig
+printf "\e[32mGit configs installed\e[m\n"
+
 unset os_type

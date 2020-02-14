@@ -1,0 +1,18 @@
+[user]
+  name = Even Zhou
+  email = even.y.zhou@outlook.com
+[core]
+  editor = vim
+  autocrlf = input
+  safecrlf = warn
+  eol = lf
+[credential]
+  helper = store --file ~/.gitcredential
+[alias]
+  v = version
+  a = add .
+  c = commit
+  cm = commit -m
+  s = status
+  lo = log --pretty=oneline
+  lr = log --pretty=reference
