@@ -19,7 +19,9 @@
   "terminal.integrated.fontSize": 15,
   "terminal.integrated.cursorStyle": "underline",
 
-  "latex-workshop.view.pdf.viewer": "tab",
-  "csharp.referencesCodeLens.enabled": false,
   "python.linting.pylintEnabled": false,
+
+  "csharp.referencesCodeLens.enabled": false,
+
+  "latex-workshop.view.pdf.viewer": "tab",
 }
