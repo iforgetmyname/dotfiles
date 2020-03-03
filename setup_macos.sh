@@ -8,7 +8,6 @@
 /usr/local/bin/brew install bash-completion
 /usr/local/bin/brew install dark-mode
 /usr/local/bin/brew install git
-/usr/local/bin/brew install nodebrew
 /usr/local/bin/brew install openssh
 /usr/local/bin/brew install pkg-config
 /usr/local/bin/brew install python

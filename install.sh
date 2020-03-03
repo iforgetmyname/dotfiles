@@ -37,4 +37,11 @@ else
   printf "\e[31m$os_type not supported for vscode\e[m\n"
 fi
 
+printf "\e[32mInstalling miscellaneous binaries...\e[m\n"
+mkdir -v $HOME/.bin
+for file in $PWD/bin/*; do
+  install -m 755 -v $file $HOME/.bin
+done
+printf "\e[32mMiscellaneous binaries installed\e[m\n"
+
 unset os_type

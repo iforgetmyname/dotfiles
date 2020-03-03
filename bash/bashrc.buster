@@ -54,7 +54,7 @@ else
 fi
 
 # Environment configs
-PATH="$HOME/.nodebrew/current/bin:$PATH"    # NodeJS
+PATH="$HOME/.bin:$PATH"
 DOTNET_CLI_TELEMETRY_OPTOUT=true
 export PATH DOTNET_CLI_TELEMETRY_OPTOUT
 

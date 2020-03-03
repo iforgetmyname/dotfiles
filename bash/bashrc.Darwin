@@ -43,13 +43,12 @@ else
 fi
 
 # Environment configs
+PATH="$HOME/.bin:$PATH"
 PATH="/usr/local/sbin:/usr/local/bin:$PATH"       # brew packages
 PATH="/Library/TeX/texbin:$PATH"                  # TeX binaries
-PATH="/usr/local/var/nodebrew/current/bin:$PATH"  # NodeJS
 PATH="/usr/local/opt/openjdk/bin:$PATH"           # JDK
-NODEBREW_ROOT="/usr/local/var/nodebrew"
 DOTNET_CLI_TELEMETRY_OPTOUT=true
-export PATH NODEBREW_ROOT DOTNET_CLI_TELEMETRY_OPTOUT
+export PATH DOTNET_CLI_TELEMETRY_OPTOUT
 
 # CLI proxy
 #http_proxy=socks5://127.0.0.1:1080
