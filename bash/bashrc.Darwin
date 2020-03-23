@@ -47,6 +47,7 @@ PATH="$HOME/.bin:$PATH"
 PATH="/usr/local/sbin:/usr/local/bin:$PATH"       # brew packages
 PATH="/Library/TeX/texbin:$PATH"                  # TeX binaries
 PATH="/usr/local/opt/openjdk/bin:$PATH"           # JDK
+PATH="/usr/local/opt/node@12/bin:$PATH"           # NodeJS
 DOTNET_CLI_TELEMETRY_OPTOUT=true
 export PATH DOTNET_CLI_TELEMETRY_OPTOUT
 

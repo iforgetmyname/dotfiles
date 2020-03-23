@@ -4,22 +4,32 @@
   "workbench.colorTheme": "Eva Dark Bold",
   "workbench.statusBar.visible": true,
 
-  "editor.fontSize": 20,
+  "explorer.sortOrder": "type",
+
+  "files.autoSaveDelay": 2000,
+
   "editor.fontFamily": "'Source Code Pro', 'Source Code Variable', Monaco, 'Courier New', monospace",
+  "editor.fontSize": 20,
+  "editor.largeFileOptimizations": true,
+  "editor.minimap.enabled": false,
   "editor.renderWhitespace": "boundary",
   "editor.renderControlCharacters": false,
   "editor.suggestSelection": "first",
-  "editor.minimap.enabled": false,
-  "editor.largeFileOptimizations": false,
-  "files.autoSaveDelay": 2000,
-  "explorer.sortOrder": "type",
+  "editor.tabSize": 2,
 
-  "terminal.integrated.shell.osx": "/bin/bash",
-  "terminal.integrated.shell.linux": "/bin/bash",
-  "terminal.integrated.fontSize": 15,
   "terminal.integrated.cursorStyle": "underline",
+  "terminal.integrated.fontSize": 15,
+  "terminal.integrated.shell.linux": "/bin/bash",
+  "terminal.integrated.shell.osx": "/bin/bash",
 
+  "[python]": {
+    "editor.tabSize": 4,
+  },
+  "python.linting.pycodestyleEnabled": true,
+  "python.linting.pycodestyleArgs": ["--ignore=E501"],
+  "python.formatting.autopep8Args": ["--ignore=E501"],
   "python.linting.pylintEnabled": false,
+  "python.linting.enabled": true,
 
   "csharp.referencesCodeLens.enabled": false,
 

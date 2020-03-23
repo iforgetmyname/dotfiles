@@ -1,0 +1,91 @@
+#!/usr/bin/env python3
+import json
+import argparse
+import subprocess
+file_content = {}
+dependencies = {}
+dev_dependencies = {}
+
+
+def initArgsList(parser: argparse.ArgumentParser):
+
+    parser.add_argument("file", help="npm package.json file", type=str, nargs="?", default="./package.json")
+    parser.add_argument("-D", "--dev", help="include dev dependencies", action="store_true")
+    parser.add_argument("-y", help="yes to all", action="store_true")
+    parser.add_argument("-i", "--indent", help="indentation for json file", type=int, default=4)
+
+
+def loadFile(args: argparse.Namespace):
+
+    with open(args.file, "r") as f:
+        global file_content, dependencies, dev_dependencies
+        file_content = json.load(f)
+        dependencies = file_content["dependencies"]
+        dev_dependencies = file_content["devDependencies"]
+
+
+def writeFile(args: argparse.Namespace):
+
+    with open(args.file, "w") as f:
+        global file_content, dependencies, dev_dependencies
+        file_content["dependencies"] = dependencies
+        file_content["devDependencies"] = dev_dependencies
+        json.dump(file_content, f, ensure_ascii=True, indent=args.indent)
+
+
+def bumpDependencies(args: argparse.Namespace):
+
+    global dependencies
+    for d in dependencies:
+        proc = subprocess.Popen(["npm", "info", d, "version"], stdout=subprocess.PIPE)
+
+        old_version = dependencies[d].strip("^ ")
+        new_version = proc.stdout.readline().decode("utf-8").rstrip()
+        if new_version > old_version:
+            print(d, ":", old_version, "->", new_version, end="")
+
+            if not args.y:
+                result = input("?\t[Y/N]: ")
+                if (result.lower() == "n"):
+                    print("discarded")
+                    continue
+            else:
+                print()
+
+            dependencies[d] = "^" + new_version
+
+
+def bumpDevDependencies(args: argparse.Namespace):
+
+    global dev_dependencies
+    for d in dev_dependencies:
+        proc = subprocess.Popen(["npm", "info", d, "version"], stdout=subprocess.PIPE)
+
+        old_version = dev_dependencies[d].strip("^ ")
+        new_version = proc.stdout.readline().decode("utf-8").rstrip()
+        if new_version > old_version:
+            print(d, ":", old_version, "->", new_version, end="")
+
+            if not args.y:
+                result = input("?\t[Y/N]: ")
+                if (result.lower() == "n"):
+                    print("discarded")
+                    continue
+            else:
+                print()
+
+            dev_dependencies[d] = "^" + new_version
+
+
+if __name__ == "__main__":
+
+    parser = argparse.ArgumentParser()
+    initArgsList(parser)
+
+    args = parser.parse_args()
+
+    loadFile(args)
+    bumpDependencies(args)
+    if args.dev:
+        bumpDevDependencies(args)
+    writeFile(args)

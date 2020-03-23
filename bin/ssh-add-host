@@ -6,32 +6,33 @@ import argparse
 
 def initArgsList(parser: argparse.ArgumentParser):
 
-  parser.add_argument("name", help="nick name", type=str)
-  parser.add_argument("-U", "--user", help="username", type=str)
-  parser.add_argument("-K", "--key", help="public key", type=str)
-  parser.add_argument("-H", "--host", help="hostname", type=str)
-  parser.add_argument("-P", "--port", help="port", type=str, default=22)
+    parser.add_argument("name", help="nick name", type=str)
+    parser.add_argument("-U", "--user", help="username", type=str)
+    parser.add_argument("-K", "--key", help="public key", type=str)
+    parser.add_argument("-H", "--host", help="hostname", type=str)
+    parser.add_argument("-P", "--port", help="port", type=str, default=22)
 
 
 def writeSSHConfig(args: argparse.Namespace):
-  file = open(os.environ['HOME'] + "/.ssh/config", 'a')
-  file.writelines([
-    "\n",
-    "Host {}\n".format(args.name if args.name else args.host),
-    "  HostName {}\n".format(args.host),
-    "  User {}\n".format(args.user),
-    "  Port {}\n".format(args.port),
-    "  AddKeysToAgent yes\n",
-    "  IdentityFile ~/.ssh/{}\n".format(args.key)
-  ])
-  file.close()
+
+    file = open(os.environ["HOME"] + "/.ssh/config", "a")
+    file.writelines([
+        "\n",
+        "Host {}\n".format(args.name if args.name else args.host),
+        "  HostName {}\n".format(args.host),
+        "  User {}\n".format(args.user),
+        "  Port {}\n".format(args.port),
+        "  AddKeysToAgent yes\n",
+        "  IdentityFile ~/.ssh/{}\n".format(args.key)
+    ])
+    file.close()
 
 
 if __name__ == "__main__":
 
-  parser = argparse.ArgumentParser()
-  initArgsList(parser)
+    parser = argparse.ArgumentParser()
+    initArgsList(parser)
 
-  args = parser.parse_args()
+    args = parser.parse_args()
 
-  writeSSHConfig(args)
+    writeSSHConfig(args)
