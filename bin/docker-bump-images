@@ -1,0 +1,32 @@
+#!/usr/bin/env python3
+import argparse
+import subprocess
+images = {}
+
+
+def loadImages():
+
+    global images
+    proc = subprocess.Popen(["docker", "images"], stdout=subprocess.PIPE)
+    lines = proc.stdout.readlines()[1:]
+    for line in lines:
+        line = line.decode("utf-8").rstrip().split()
+        images[line[0]] = line[1]
+
+
+def bumpImages():
+
+    global images
+    for image in images.keys():
+        version = images[image]
+        full_image = "{}:{}".format(image, version)
+        proc = subprocess.Popen(["docker", "pull", full_image], stdout=subprocess.PIPE)
+        for line in proc.stdout.readlines():
+            print(line.decode("utf-8").rstrip())
+        print()
+
+
+if __name__ == "__main__":
+
+    loadImages()
+    bumpImages()

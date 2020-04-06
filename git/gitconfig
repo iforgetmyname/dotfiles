@@ -10,7 +10,8 @@
   helper = store --file ~/.gitcredential
 [alias]
   v = version
-  a = add .
+  a = add
+  aa = add .
   c = commit
   cm = commit -m
   s = status

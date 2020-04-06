@@ -44,6 +44,7 @@ fi
 
 # Environment configs
 PATH="$HOME/.bin:$PATH"
+PATH="$HOME/Library/Python/3.7/bin:$PATH"         # Python3 local packages
 PATH="/usr/local/sbin:/usr/local/bin:$PATH"       # brew packages
 PATH="/Library/TeX/texbin:$PATH"                  # TeX binaries
 PATH="/usr/local/opt/openjdk/bin:$PATH"           # JDK

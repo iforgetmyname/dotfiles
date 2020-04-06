@@ -8,6 +8,9 @@ alias bashapply=". $HOME/.bashrc"
 alias ls="ls -Gp "
 alias ll="ls -Alh "
 
+# grep configs
+alias grep="grep --color=auto "
+
 # Directories
 alias dl="cd $HOME/Downloads/"
 alias doc="cd $HOME/Documents/"
