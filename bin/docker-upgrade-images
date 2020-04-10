@@ -7,7 +7,7 @@ outdated_images = []
 
 def initArgsList(parser: argparse.ArgumentParser):
 
-    parser.add_argument("-c", "--clear", help="clear outdated images", action="store_true")
+    parser.add_argument("-c", "--clear", help="don't clear outdated images", action="store_true")
 
 
 def loadImages():
@@ -36,7 +36,7 @@ def bumpImages():
 def clearImages():
 
     global outdated_images
-    if len(outdated_images) >= 0:
+    if len(outdated_images) > 0:
         proc = subprocess.Popen(["docker", "rmi"] + outdated_images, stdout=subprocess.PIPE)
         for line in proc.stdout.readlines():
             print(line.decode("utf-8").rstrip())
@@ -51,5 +51,5 @@ if __name__ == "__main__":
 
     loadImages()
     bumpImages()
-    if args.clear:
+    if not args.clear:
         clearImages()
