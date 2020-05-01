@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 import argparse
 import subprocess
-current_images = []
-outdated_images = []
+images = []
 
 
 def initArgsList(parser: argparse.ArgumentParser):
@@ -12,34 +11,39 @@ def initArgsList(parser: argparse.ArgumentParser):
 
 def loadImages():
 
-    global current_images, outdated_images
+    global images
     proc = subprocess.Popen(["docker", "images"], stdout=subprocess.PIPE)
     lines = proc.stdout.readlines()[1:]
     for line in lines:
         line = line.decode("utf-8").rstrip().split()
         if line[1] != "<none>":
-            current_images.append("{}:{}".format(line[0], line[1]))
-        else:
-            outdated_images.append(line[2])
+            images.append("{}:{}".format(line[0], line[1]))
 
 
 def bumpImages():
 
-    global current_images
-    for images in current_images:
-        proc = subprocess.Popen(["docker", "pull", images], stdout=subprocess.PIPE)
-        for line in proc.stdout.readlines():
-            print(line.decode("utf-8").rstrip())
+    global images
+    for images in images:
+        proc = subprocess.Popen(["docker", "pull", images])
+        proc.wait()
         print()
 
 
 def clearImages():
 
-    global outdated_images
+    outdated_images = []
+    proc = subprocess.Popen(["docker", "images"], stdout=subprocess.PIPE)
+    lines = proc.stdout.readlines()[1:]
+    for line in lines:
+        line = line.decode("utf-8").rstrip().split()
+        if line[1] == "<none>":
+            outdated_images.append(line[2])
+
     if len(outdated_images) > 0:
-        proc = subprocess.Popen(["docker", "rmi"] + outdated_images, stdout=subprocess.PIPE)
-        for line in proc.stdout.readlines():
-            print(line.decode("utf-8").rstrip())
+        proc = subprocess.Popen(["docker", "rmi"] + outdated_images)
+        proc.wait()
+    else:
+        print("No outdated images")
 
 
 if __name__ == "__main__":

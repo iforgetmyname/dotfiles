@@ -10,8 +10,7 @@
   helper = store --file ~/.gitcredential
 [alias]
   v = version
-  a = add
-  aa = add .
+  a = add .
   c = commit
   cm = commit -m
   s = status
@@ -20,3 +19,8 @@
   cl = clone
   lo = log --pretty=oneline
   lr = log --pretty=reference
+[filter "lfs"]
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true

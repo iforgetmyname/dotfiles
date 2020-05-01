@@ -7,19 +7,24 @@
 /usr/local/bin/brew update
 /usr/local/bin/brew install bash-completion
 /usr/local/bin/brew install dark-mode
+/usr/local/bin/brew install docker-completion
+/usr/local/bin/brew install docker-compose-completion
 /usr/local/bin/brew install git
+/usr/local/bin/brew isntall mas
 /usr/local/bin/brew install openssh
 /usr/local/bin/brew install pkg-config
 /usr/local/bin/brew install python
-/usr/local/bin/brew install shadowsocks-libev
+/usr/local/bin/brew install python@3.8
 /usr/local/bin/brew install tree
 /usr/local/bin/brew install vim
 
 ### Install Homebrew Taps
-/usr/local/bin/brew tap homebrew/cask-versions
-/usr/local/bin/brew tap homebrew/cask-fonts
-/usr/local/bin/brew tap homebrew/services
+/usr/local/bin/brew tap adoptopenjdk/openjdk
 /usr/local/bin/brew tap buo/cask-upgrade
+/usr/local/bin/brew tap homebrew/cask
+/usr/local/bin/brew tap homebrew/cask-fonts
+/usr/local/bin/brew tap homebrew/cask-versions
+/usr/local/bin/brew tap homebrew/services
 
 ### Install Homebrew Casks
 mkdir -m 755 -v $HOME/Applications

@@ -31,6 +31,9 @@
   "python.linting.pylintEnabled": false,
   "python.linting.enabled": true,
 
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+
   "csharp.referencesCodeLens.enabled": false,
 
   "latex-workshop.view.pdf.viewer": "tab",
