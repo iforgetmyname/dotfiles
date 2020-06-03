@@ -6,6 +6,8 @@
   autocrlf = input
   safecrlf = warn
   eol = lf
+[pull]
+  ff = only
 [credential]
   helper = store --file ~/.gitcredential
 [alias]
@@ -14,9 +16,15 @@
   c = commit
   cm = commit -m
   s = status
+  b = branch -a
   ph = push
   pl = pull
   cl = clone
+  cb = clone -b
+  f = fetch -pPv --all
+  ch = checkout
+  cht = checkout -t
+  chb = checkout -b
   lo = log --pretty=oneline
   lr = log --pretty=reference
 [filter "lfs"]
