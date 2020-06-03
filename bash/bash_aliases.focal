@@ -1,0 +1,20 @@
+### Aliases
+
+# Bashrc configs
+alias bashconfig="vim $HOME/.bashrc"
+alias bashapply=". $HOME/.bashrc"
+
+# ls configs
+alias ls="ls --color=auto -p "
+alias ll="ls -Alh "
+
+# Directories
+alias dl="cd $HOME/Downloads/"
+alias doc="cd $HOME/Documents/"
+alias csc="cd $HOME/Documents/CSC/"
+
+if [ "$color_prompt" = yes ]; then
+  printf "\e[32m\xE2\x9C\x93 aliases\e[m\n"
+else
+  printf "\xE2\x9C\x93 aliases\n"
+fi
