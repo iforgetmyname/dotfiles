@@ -1,14 +1,16 @@
 {
-  "window.zoomLevel": 0,
+  "security.workspace.trust.enabled": false,
 
-  "workbench.colorTheme": "Eva Dark Bold",
+  "telemetry.telemetryLevel": "off",
+
+  "workbench.colorTheme": "Dracula",
   "workbench.statusBar.visible": true,
 
   "explorer.sortOrder": "type",
 
   "files.autoSaveDelay": 2000,
 
-  "editor.fontFamily": "'Source Code Pro', 'Source Code Variable', Monaco, 'Courier New', monospace",
+  "editor.fontFamily": "'Cascadia Code', 'Source Code Pro', 'Source Code Variable', Monaco, 'Courier New', monospace",
   "editor.fontSize": 20,
   "editor.largeFileOptimizations": true,
   "editor.minimap.enabled": false,
@@ -19,15 +21,39 @@
 
   "terminal.integrated.cursorStyle": "underline",
   "terminal.integrated.fontSize": 15,
-  "terminal.integrated.shell.linux": "/bin/bash",
-  "terminal.integrated.shell.osx": "/bin/bash",
+  "terminal.integrated.profiles.linux": {
+    "bash": {
+      "path": "/bin/bash",
+      "icon": "terminal-bash"
+    }
+  },
+  "terminal.integrated.profiles.osx": {
+    "bash": {
+      "path": "/bin/bash",
+      "args": [
+        "-l"
+      ],
+      "icon": "terminal-bash"
+    }
+  },
+
+  "git.ignoreMissingGitWarning": true,
+  "git.ignoreLegacyWarning": true,
+
+  "extensions.ignoreRecommendations": true,
+
+  "C_Cpp.clang_format_style": "{ BasedOnStyle: Google, AlignConsecutiveAssignments: true, AlignConsecutiveDeclarations: true, AlignConsecutiveMacros: true, AllowShortBlocksOnASingleLine: Empty, BreakBeforeBraces: Linux, ColumnLimit: 0, IndentWidth: 4, PointerAlignment: Left }",
 
   "[python]": {
-    "editor.tabSize": 4,
+    "editor.tabSize": 4
   },
   "python.linting.pycodestyleEnabled": true,
-  "python.linting.pycodestyleArgs": ["--ignore=E501"],
-  "python.formatting.autopep8Args": ["--ignore=E501"],
+  "python.linting.pycodestyleArgs": [
+    "--ignore=E501"
+  ],
+  "python.formatting.autopep8Args": [
+    "--ignore=E501"
+  ],
   "python.linting.pylintEnabled": false,
   "python.linting.enabled": true,
 
@@ -36,5 +62,6 @@
 
   "csharp.referencesCodeLens.enabled": false,
 
-  "latex-workshop.view.pdf.viewer": "tab",
+  "latex-workshop.view.pdf.viewer": "tab"
+
 }
