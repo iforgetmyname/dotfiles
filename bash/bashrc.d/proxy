@@ -1,0 +1,37 @@
+### Proxy
+
+enable_proxy() {
+  os_type=$(uname -s)
+  if [ "$os_type" = "Linux" ]; then
+    http_proxy=http://127.0.0.1:1080
+    https_proxy=http://127.0.0.1:1080
+  else
+    http_proxy=http://127.0.0.1:1087
+    https_proxy=http://127.0.0.1:1087
+  fi
+  unset os_type
+  export http_proxy https_proxy
+
+  if [ -o $color_prompt ]; then
+    printf "\xE2\x9C\x93 proxy\n"
+  else
+    printf "\e[32m\xE2\x9C\x93 proxy\e[m\n"
+  fi
+}
+
+disable_proxy() {
+  unset http_proxy
+  unset https_proxy
+
+  if [ -o $color_prompt ]; then
+    printf "\xE2\x9C\x98 proxy\n"
+  else
+    printf "\e[31m\xE2\x9C\x98 proxy\e[m\n"
+  fi
+}
+
+if [ -o $DISABLE_PROXY ]; then
+  enable_proxy
+else
+  disable_proxy
+fi

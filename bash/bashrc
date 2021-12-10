@@ -1,0 +1,46 @@
+# If not running interactively, don't do anything
+case $- in
+  *i* )
+  ;;
+  * )
+    return
+  ;;
+esac
+
+# Check windows size after each command
+shopt -s checkwinsize
+
+# Append to the history file
+shopt -s histappend
+# History file length
+HISTSIZE=1000
+HISTFILESIZE=2000
+
+# Check if color prompted
+case "$TERM" in
+  xterm-color | xterm-256color )
+    color_prompt=1
+  ;;
+esac
+
+# PS
+PS1="\n[\t] \u@\h: \e[36m\w\e[m\n=> "
+PS2="=>> "
+PS3="=>>> "
+if [ -o $color_prompt ]; then
+  PS1="\n[\t] \u@\h: \w\n=> "
+fi
+export PS1 PS2 PS3
+
+# Environment
+PATH="$HOME/.bin:$PATH"
+PATH="/opt/local/sbin:/opt/local/bin:$PATH"         # MacPorts packages
+DOTNET_CLI_TELEMETRY_OPTOUT=true
+export PATH DOTNET_CLI_TELEMETRY_OPTOUT
+
+# Read additional configs
+if [ -d $HOME/.bashrc.d/ ]; then
+  for cfile in $HOME/.bashrc.d/*; do
+    . $cfile
+  done
+fi

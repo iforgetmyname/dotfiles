@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+sudo port selfupdate
+sudo port upgrade outdated
+sudo port reclaim
