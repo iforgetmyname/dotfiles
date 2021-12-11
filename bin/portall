@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-sudo port selfupdate
-sudo port upgrade outdated
-sudo port reclaim
+sudo /opt/local/bin/port selfupdate
+sudo /opt/local/bin/port upgrade outdated
+sudo /opt/local/bin/port reclaim

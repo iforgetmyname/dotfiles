@@ -13,15 +13,15 @@ fi
 
 if [ -o $enabled ]; then
   if [ -o $color_prompt ]; then
-    printf "\xE2\x9C\x98 bash_completion not installed\n"
+    printf "\xE2\x9C\x98 bash-completion not installed\n"
   else
-    printf "\e[31m\xE2\x9C\x98 bash_completion not installed\e[m\n"
+    printf "\e[31m\xE2\x9C\x98 bash-completion not installed\e[m\n"
   fi
 else
   if [ -o $color_prompt ]; then
-    printf "\xE2\x9C\x93 bash_completion\n"
+    printf "\xE2\x9C\x93 bash-completion\n"
   else
-    printf "\e[32m\xE2\x9C\x93 bash_completion\e[m\n"
+    printf "\e[32m\xE2\x9C\x93 bash-completion\e[m\n"
   fi
 fi
 
