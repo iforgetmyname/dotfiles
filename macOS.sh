@@ -19,5 +19,5 @@ sudo /opt/local/bin/port select --set python python310
 sudo /opt/local/bin/port select --set python3 python310
 sudo /opt/local/bin/port select --set pip pip310
 sudo /opt/local/bin/port select --set pip3 pip310
-sudo /opt/local/bin/port select --set autopep8 py310-autopep8
+sudo /opt/local/bin/port select --set autopep8 autopep8-py310
 sudo /opt/local/bin/port select --set pycodestyle pycodestyle-py310
