@@ -36,6 +36,7 @@ export PS1 PS2 PS3
 PATH="$HOME/.bin:$PATH"
 PATH="/opt/local/sbin:/opt/local/bin:$PATH"         # MacPorts packages
 DOTNET_CLI_TELEMETRY_OPTOUT=true
+DISABLE_PROXY=true
 export PATH DOTNET_CLI_TELEMETRY_OPTOUT
 
 # Read additional configs

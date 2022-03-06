@@ -1,6 +1,5 @@
 [user]
   name = Even Zhou
-  email = even.y.zhou@outlook.com
 [core]
   editor = vim
   autocrlf = input
